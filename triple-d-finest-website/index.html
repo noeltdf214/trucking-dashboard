@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triple D Finest Logistics</title>
+  <meta name="description" content="Triple D Finest Logistics load and profit dashboard" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="hero">
+    <nav class="nav container">
+      <div>
+        <div class="brand">Triple D Finest Logistics</div>
+        <div class="subbrand">Dallas, Texas</div>
+      </div>
+      <a class="button secondary" href="#dashboard">Open Dashboard</a>
+    </nav>
+
+    <div class="container hero-grid">
+      <section>
+        <span class="eyebrow">Owner-ready website</span>
+        <h1>Track loads, fuel, deadhead, and 50/50 owner split in one place.</h1>
+        <p class="lead">Built for a small trucking operation with one truck to start. Save load details, calculate fuel cost automatically, and see profit split between both owners fast.</p>
+        <div class="hero-actions">
+          <a class="button" href="#dashboard">Start Tracking</a>
+          <a class="button secondary" href="#features">See Features</a>
+        </div>
+      </section>
+      <section class="hero-card">
+        <div class="stat-grid">
+          <div class="stat-card">
+            <span>Total Gross</span>
+            <strong id="heroGross">$0.00</strong>
+          </div>
+          <div class="stat-card">
+            <span>Total Net</span>
+            <strong id="heroNet">$0.00</strong>
+          </div>
+          <div class="stat-card">
+            <span>Owner Split</span>
+            <strong id="heroSplit">$0.00</strong>
+          </div>
+          <div class="stat-card">
+            <span>Saved Loads</span>
+            <strong id="heroLoads">0</strong>
+          </div>
+        </div>
+      </section>
+    </div>
+  </header>
+
+  <main>
+    <section id="features" class="section container">
+      <div class="section-head">
+        <span class="eyebrow">What is included</span>
+        <h2>Everything needed to start clean and organized.</h2>
+      </div>
+      <div class="features">
+        <article class="card">
+          <h3>Load Calculator</h3>
+          <p>Enter gross load amount, miles, fuel price, driver pay, and extra expenses. The site calculates totals instantly.</p>
+        </article>
+        <article class="card">
+          <h3>Deadhead Tracking</h3>
+          <p>Track both outbound and return deadhead miles so actual trip cost is more accurate.</p>
+        </article>
+        <article class="card">
+          <h3>50/50 Owner Split</h3>
+          <p>Net profit is split equally after driver pay and expenses. Great for Noel and Carlos ownership tracking.</p>
+        </article>
+        <article class="card">
+          <h3>Saved Loads</h3>
+          <p>Your entries stay saved in the browser on this device using local storage.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="dashboard" class="section dark-section">
+      <div class="container dashboard-layout">
+        <section class="panel form-panel">
+          <div class="section-head compact">
+            <span class="eyebrow">Load entry</span>
+            <h2>Add a new load</h2>
+          </div>
+
+          <form id="loadForm" class="form-grid">
+            <label>
+              Load ID
+              <input type="text" id="loadId" placeholder="Load-001" required />
+            </label>
+            <label>
+              Date
+              <input type="date" id="loadDate" required />
+            </label>
+            <label>
+              Broker / Customer
+              <input type="text" id="brokerName" placeholder="Broker name" />
+            </label>
+            <label>
+              Gross Load Amount ($)
+              <input type="number" id="grossLoad" min="0" step="0.01" placeholder="2500" required />
+            </label>
+            <label>
+              Loaded Miles
+              <input type="number" id="loadedMiles" min="0" step="0.1" placeholder="450" required />
+            </label>
+            <label>
+              Deadhead Miles Out
+              <input type="number" id="deadheadOut" min="0" step="0.1" placeholder="75" />
+            </label>
+            <label>
+              Deadhead Miles Return
+              <input type="number" id="deadheadReturn" min="0" step="0.1" placeholder="90" />
+            </label>
+            <label>
+              MPG
+              <input type="number" id="mpg" min="0.1" step="0.1" value="6.5" required />
+            </label>
+            <label>
+              Fuel Price per Gallon ($)
+              <input type="number" id="fuelPrice" min="0" step="0.01" placeholder="3.59" required />
+            </label>
+            <label>
+              Driver Pay ($)
+              <input type="number" id="driverPay" min="0" step="0.01" placeholder="650" required />
+            </label>
+            <label>
+              Other Expenses ($)
+              <input type="number" id="otherExpenses" min="0" step="0.01" placeholder="125" />
+            </label>
+            <label>
+              Notes
+              <input type="text" id="notes" placeholder="Tolls, lumper, etc." />
+            </label>
+
+            <div class="actions">
+              <button class="button" type="submit">Save Load</button>
+              <button class="button secondary" type="button" id="resetBtn">Clear</button>
+            </div>
+          </form>
+        </section>
+
+        <section class="panel">
+          <div class="section-head compact">
+            <span class="eyebrow">Live totals</span>
+            <h2>Business snapshot</h2>
+          </div>
+          <div class="summary-grid">
+            <div class="summary-card"><span>Total Gross Revenue</span><strong id="totalGross">$0.00</strong></div>
+            <div class="summary-card"><span>Total Fuel Cost</span><strong id="totalFuel">$0.00</strong></div>
+            <div class="summary-card"><span>Total Expenses</span><strong id="totalExpenses">$0.00</strong></div>
+            <div class="summary-card"><span>Total Net Profit</span><strong id="totalNet">$0.00</strong></div>
+            <div class="summary-card"><span>Noel 50%</span><strong id="ownerOne">$0.00</strong></div>
+            <div class="summary-card"><span>Carlos 50%</span><strong id="ownerTwo">$0.00</strong></div>
+          </div>
+
+          <div class="mini-calc card calc-output">
+            <h3>Current load preview</h3>
+            <div class="calc-line"><span>Total Trip Miles</span><strong id="previewTripMiles">0.0</strong></div>
+            <div class="calc-line"><span>Gallons Used</span><strong id="previewGallons">0.00</strong></div>
+            <div class="calc-line"><span>Fuel Cost</span><strong id="previewFuelCost">$0.00</strong></div>
+            <div class="calc-line"><span>Net Profit</span><strong id="previewNetProfit">$0.00</strong></div>
+            <div class="calc-line"><span>Each Owner</span><strong id="previewSplit">$0.00</strong></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="section container">
+      <div class="section-head compact">
+        <span class="eyebrow">Saved records</span>
+        <h2>Load history</h2>
+      </div>
+      <div class="table-wrap card">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Load ID</th>
+              <th>Broker</th>
+              <th>Gross</th>
+              <th>Fuel</th>
+              <th>Expenses</th>
+              <th>Net</th>
+              <th>Owner Split</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="loadsTableBody">
+            <tr><td colspan="9" class="empty">No loads saved yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div>
+        <strong>Triple D Finest Logistics</strong>
+        <p>Simple ready-to-use website for tracking loads and profit.</p>
+      </div>
+      <button class="button secondary" id="clearAllBtn" type="button">Delete All Saved Loads</button>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
