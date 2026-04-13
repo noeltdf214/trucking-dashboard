@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triple D Finest Logistics | Operations Dashboard</title>
+  <meta name="description" content="Triple D Finest Logistics operations dashboard for owners, drivers, and clients." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="container topbar-inner">
+        <div class="brand-wrap">
+          <div class="brand-mark">TD</div>
+          <div>
+            <div class="brand">Triple D Finest Logistics</div>
+            <div class="subbrand">Operations • Dispatch • Profit Tracking</div>
+          </div>
+        </div>
+        <div class="topbar-actions">
+          <span id="connectionBadge" class="status-pill warning">Local Mode</span>
+          <button id="openLoginBtn" class="button secondary" type="button">Switch User</button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero section">
+        <div class="container hero-grid">
+          <div>
+            <span class="eyebrow">Business-ready upgrade</span>
+            <h1>One dashboard for owners, drivers, and clients.</h1>
+            <p class="lead">Track loads, fuel, deadhead, driver pay, broker info, net profit, owner split, and delivery status in one clean system. This version includes role-based views, CSV export, editing, and a cloud-ready setup path.</p>
+            <div class="hero-actions">
+              <button class="button" type="button" data-jump="#workspace">Open Workspace</button>
+              <button class="button secondary" type="button" id="demoLoginBtn">Use Demo Login</button>
+            </div>
+            <div class="notice-card">
+              <strong>Current build:</strong>
+              <span>Ready to deploy now with local data. A Supabase hookup guide is included so you can turn it into a shared live system for Noel, Carlos, drivers, and clients.</span>
+            </div>
+          </div>
+          <div class="hero-panel">
+            <div class="hero-stat-grid">
+              <article class="hero-stat-card">
+                <span>Total Gross</span>
+                <strong id="heroGross">$0.00</strong>
+              </article>
+              <article class="hero-stat-card">
+                <span>Total Net</span>
+                <strong id="heroNet">$0.00</strong>
+              </article>
+              <article class="hero-stat-card">
+                <span>Active Loads</span>
+                <strong id="heroActiveLoads">0</strong>
+              </article>
+              <article class="hero-stat-card">
+                <span>Owner Split</span>
+                <strong id="heroSplit">$0.00</strong>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="container feature-grid">
+          <article class="card feature-card">
+            <h3>Owner Workspace</h3>
+            <p>Create, edit, filter, export, and manage loads with business totals and split tracking.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Driver View</h3>
+            <p>Drivers can see assigned loads, status, pickup, delivery, and notes without full business access.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Client View</h3>
+            <p>Clients get a simple load status board for reference numbers and shipment progress.</p>
+          </article>
+          <article class="card feature-card">
+            <h3>Cloud-Ready</h3>
+            <p>The code is structured so you can swap local storage for Supabase when you want shared live data.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="workspace" class="section workspace-section">
+        <div class="container workspace-grid">
+          <aside class="sidebar card">
+            <div class="sidebar-block">
+              <span class="eyebrow">Signed in as</span>
+              <h2 id="currentUserName">Guest</h2>
+              <p id="currentUserMeta" class="muted">Open the demo login to enter the workspace.</p>
+            </div>
+
+            <div class="sidebar-block">
+              <button class="nav-btn active" type="button" data-view="ownerView">Owner Dashboard</button>
+              <button class="nav-btn" type="button" data-view="driverView">Driver Board</button>
+              <button class="nav-btn" type="button" data-view="clientView">Client Tracking</button>
+              <button class="nav-btn" type="button" data-view="settingsView">System Notes</button>
+            </div>
+
+            <div class="sidebar-block mini-list">
+              <div class="mini-row"><span>Today's Date</span><strong id="todayLabel">--</strong></div>
+              <div class="mini-row"><span>Total Loads</span><strong id="sidebarTotalLoads">0</strong></div>
+              <div class="mini-row"><span>Completed</span><strong id="sidebarDeliveredLoads">0</strong></div>
+              <div class="mini-row"><span>In Transit</span><strong id="sidebarTransitLoads">0</strong></div>
+            </div>
+          </aside>
+
+          <div class="main-stage">
+            <section id="ownerView" class="view-panel active">
+              <div class="view-head">
+                <div>
+                  <span class="eyebrow">Owner tools</span>
+                  <h2>Operations dashboard</h2>
+                </div>
+                <div class="toolbar-actions">
+                  <button id="seedDemoBtn" class="button secondary" type="button">Load Demo Data</button>
+                  <button id="exportCsvBtn" class="button secondary" type="button">Export CSV</button>
+                </div>
+              </div>
+
+              <div class="summary-grid">
+                <article class="summary-card"><span>Total Gross Revenue</span><strong id="totalGross">$0.00</strong></article>
+                <article class="summary-card"><span>Total Fuel Cost</span><strong id="totalFuel">$0.00</strong></article>
+                <article class="summary-card"><span>Total Expenses</span><strong id="totalExpenses">$0.00</strong></article>
+                <article class="summary-card"><span>Total Net Profit</span><strong id="totalNet">$0.00</strong></article>
+                <article class="summary-card"><span>Noel 50%</span><strong id="ownerOne">$0.00</strong></article>
+                <article class="summary-card"><span>Carlos 50%</span><strong id="ownerTwo">$0.00</strong></article>
+              </div>
+
+              <div class="content-grid">
+                <section class="card form-card">
+                  <div class="section-head compact">
+                    <span class="eyebrow">Load entry</span>
+                    <h3 id="formTitle">Add or update load</h3>
+                  </div>
+
+                  <form id="loadForm" class="form-grid">
+                    <input type="hidden" id="editingId" />
+                    <label>
+                      Load ID
+                      <input type="text" id="loadId" placeholder="TD-001" required />
+                    </label>
+                    <label>
+                      Date
+                      <input type="date" id="loadDate" required />
+                    </label>
+                    <label>
+                      Broker / Customer
+                      <input type="text" id="brokerName" placeholder="Broker or customer" />
+                    </label>
+                    <label>
+                      Driver Name
+                      <input type="text" id="driverName" placeholder="Driver assigned" />
+                    </label>
+                    <label>
+                      Pickup Location
+                      <input type="text" id="pickupLocation" placeholder="Dallas, TX" />
+                    </label>
+                    <label>
+                      Delivery Location
+                      <input type="text" id="deliveryLocation" placeholder="Houston, TX" />
+                    </label>
+                    <label>
+                      Status
+                      <select id="loadStatus">
+                        <option value="Booked">Booked</option>
+                        <option value="Dispatched">Dispatched</option>
+                        <option value="In Transit">In Transit</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Paid">Paid</option>
+                      </select>
+                    </label>
+                    <label>
+                      Gross Load Amount ($)
+                      <input type="number" id="grossLoad" min="0" step="0.01" placeholder="2500" required />
+                    </label>
+                    <label>
+                      Loaded Miles
+                      <input type="number" id="loadedMiles" min="0" step="0.1" placeholder="450" required />
+                    </label>
+                    <label>
+                      Deadhead Miles Out
+                      <input type="number" id="deadheadOut" min="0" step="0.1" placeholder="75" />
+                    </label>
+                    <label>
+                      Deadhead Miles Return
+                      <input type="number" id="deadheadReturn" min="0" step="0.1" placeholder="90" />
+                    </label>
+                    <label>
+                      MPG
+                      <input type="number" id="mpg" min="0.1" step="0.1" value="6.5" required />
+                    </label>
+                    <label>
+                      Fuel Price per Gallon ($)
+                      <input type="number" id="fuelPrice" min="0" step="0.01" placeholder="3.59" required />
+                    </label>
+                    <label>
+                      Driver Pay ($)
+                      <input type="number" id="driverPay" min="0" step="0.01" placeholder="650" required />
+                    </label>
+                    <label>
+                      Other Expenses ($)
+                      <input type="number" id="otherExpenses" min="0" step="0.01" placeholder="125" />
+                    </label>
+                    <label class="full-span">
+                      Notes
+                      <textarea id="notes" rows="3" placeholder="Tolls, lumper, POD notes, detention, etc."></textarea>
+                    </label>
+
+                    <div class="preview-box full-span">
+                      <div class="mini-row"><span>Total Trip Miles</span><strong id="previewTripMiles">0.0</strong></div>
+                      <div class="mini-row"><span>Gallons Used</span><strong id="previewGallons">0.00</strong></div>
+                      <div class="mini-row"><span>Fuel Cost</span><strong id="previewFuelCost">$0.00</strong></div>
+                      <div class="mini-row"><span>Net Profit</span><strong id="previewNetProfit">$0.00</strong></div>
+                      <div class="mini-row"><span>Each Owner</span><strong id="previewSplit">$0.00</strong></div>
+                    </div>
+
+                    <div class="actions full-span">
+                      <button class="button" type="submit" id="saveBtn">Save Load</button>
+                      <button class="button secondary" type="button" id="resetBtn">Clear Form</button>
+                    </div>
+                  </form>
+                </section>
+
+                <section class="card">
+                  <div class="section-head compact">
+                    <span class="eyebrow">Search and filter</span>
+                    <h3>Load controls</h3>
+                  </div>
+                  <div class="filter-grid">
+                    <label>
+                      Search
+                      <input type="text" id="searchInput" placeholder="Load ID, broker, driver, city" />
+                    </label>
+                    <label>
+                      Status Filter
+                      <select id="statusFilter">
+                        <option value="All">All statuses</option>
+                        <option value="Booked">Booked</option>
+                        <option value="Dispatched">Dispatched</option>
+                        <option value="In Transit">In Transit</option>
+                        <option value="Delivered">Delivered</option>
+                        <option value="Paid">Paid</option>
+                      </select>
+                    </label>
+                  </div>
+
+                  <div class="mini-list spacing-top">
+                    <div class="mini-row"><span>Highest Gross Load</span><strong id="highestGross">$0.00</strong></div>
+                    <div class="mini-row"><span>Average Net Per Load</span><strong id="avgNet">$0.00</strong></div>
+                    <div class="mini-row"><span>Total Miles Tracked</span><strong id="totalMiles">0.0</strong></div>
+                    <div class="mini-row"><span>Total Gallons Est.</span><strong id="totalGallons">0.00</strong></div>
+                  </div>
+
+                  <div class="danger-zone spacing-top">
+                    <p class="muted">Delete all local records on this device only.</p>
+                    <button class="button secondary" id="clearAllBtn" type="button">Delete All Saved Loads</button>
+                  </div>
+                </section>
+              </div>
+
+              <section class="card table-card spacing-top">
+                <div class="section-head compact">
+                  <span class="eyebrow">Saved records</span>
+                  <h3>Load history</h3>
+                </div>
+                <div class="table-wrap">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Date</th>
+                        <th>Load ID</th>
+                        <th>Status</th>
+                        <th>Broker</th>
+                        <th>Driver</th>
+                        <th>Gross</th>
+                        <th>Fuel</th>
+                        <th>Net</th>
+                        <th>Split</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="loadsTableBody">
+                      <tr><td colspan="10" class="empty">No loads saved yet.</td></tr>
+                    </tbody>
+                  </table>
+                </div>
+              </section>
+            </section>
+
+            <section id="driverView" class="view-panel">
+              <div class="view-head">
+                <div>
+                  <span class="eyebrow">Driver portal</span>
+                  <h2>Assigned load board</h2>
+                </div>
+              </div>
+              <div id="driverCards" class="stack-grid"></div>
+            </section>
+
+            <section id="clientView" class="view-panel">
+              <div class="view-head">
+                <div>
+                  <span class="eyebrow">Client tracking</span>
+                  <h2>Shipment status board</h2>
+                </div>
+              </div>
+              <div id="clientCards" class="stack-grid"></div>
+            </section>
+
+            <section id="settingsView" class="view-panel">
+              <div class="view-head">
+                <div>
+                  <span class="eyebrow">System notes</span>
+                  <h2>Deployment and cloud upgrade</h2>
+                </div>
+              </div>
+              <div class="card prose-card">
+                <h3>What this build includes</h3>
+                <p>This is a full front-end upgrade that is ready for Vercel deployment right now. It adds role switching, load editing, filters, export, driver and client views, and a cleaner business dashboard.</p>
+                <h3>What still needs a real backend</h3>
+                <p>To make Noel and Carlos share the same live data across devices, connect this front end to Supabase. The README includes the next steps and a starter table design.</p>
+                <h3>Suggested next backend phase</h3>
+                <p>Create a <code>loads</code> table, add users and roles, then replace the local storage adapter in <code>script.js</code> with Supabase requests.</p>
+              </div>
+            </section>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <div id="loginModal" class="modal active" aria-hidden="false">
+      <div class="modal-card">
+        <div class="section-head compact">
+          <span class="eyebrow">Demo access</span>
+          <h2>Choose your role</h2>
+          <p class="muted">This is a front-end build. Pick a demo user to enter the app.</p>
+        </div>
+        <div class="login-grid">
+          <button class="login-option" type="button" data-user="ownerNoel">
+            <strong>Noel</strong>
+            <span>Owner access</span>
+          </button>
+          <button class="login-option" type="button" data-user="ownerCarlos">
+            <strong>Carlos</strong>
+            <span>Owner access</span>
+          </button>
+          <button class="login-option" type="button" data-user="driverDemo">
+            <strong>Driver Demo</strong>
+            <span>Driver board</span>
+          </button>
+          <button class="login-option" type="button" data-user="clientDemo">
+            <strong>Client Demo</strong>
+            <span>Shipment tracking</span>
+          </button>
+        </div>
+        <div class="actions">
+          <button id="closeLoginBtn" class="button secondary" type="button">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
