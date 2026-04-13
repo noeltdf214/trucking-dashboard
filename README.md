@@ -1,33 +1,14 @@
-# Triple D Finest Logistics Website
+# Triple D Finest Logistics LLC - Premium Public Website
 
-This is a ready-to-use static website that can be deployed to Vercel, Netlify, or opened directly in a browser.
+This version is designed for a public-facing Vercel site.
 
-## Files
-- `index.html`
-- `styles.css`
-- `script.js`
-- `vercel.json`
+## What it includes
+- Premium trucking-company style homepage
+- Your logo built in
+- Email-only contact setup
+- Contact form that opens an email draft addressed to:
+  tripledfinestlogistics@gmail.com
 
-## Deploy to Vercel
-1. Upload this folder to GitHub or drag it into Vercel.
-2. If you place this project inside another repo folder, set that folder as the **Root Directory** in Vercel.
-3. Deploy.
-
-## Open locally
-Just open `index.html` in your browser.
-
-## What it does
-- Tracks gross load revenue
-- Calculates total trip miles
-- Calculates gallons used based on MPG
-- Calculates fuel cost from gas price
-- Calculates expenses and net profit
-- Splits profit 50/50 between both owners
-- Saves load history on the current device in browser storage
-
-## Next upgrade ideas
-- Login for each owner
-- Cloud database
-- Invoice generator
-- Driver settlement page
-- Admin dashboard with charts
+## Important
+This contact form works without a backend by using the visitor's email app.
+If you want messages to send directly from the website without opening email, the next step is adding Formspree, Resend, or a serverless backend.

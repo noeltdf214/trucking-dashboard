@@ -3,197 +3,186 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Triple D Finest Logistics</title>
-  <meta name="description" content="Triple D Finest Logistics load and profit dashboard" />
+  <title>Triple D Finest Logistics LLC</title>
+  <meta name="description" content="Triple D Finest Logistics LLC provides dependable freight transportation and logistics services." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero">
+  <div class="page-bg"></div>
+
+  <header class="hero" id="top">
     <nav class="nav container">
-      <div>
-        <div class="brand">Triple D Finest Logistics</div>
-        <div class="subbrand">Dallas, Texas</div>
+      <a href="#top" class="brand" aria-label="Triple D Finest Logistics LLC home">
+        <img src="logo.jpg" alt="Triple D Finest Logistics LLC logo" class="nav-logo" />
+      </a>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#coverage">Coverage</a>
+        <a href="#contact" class="nav-cta">Contact</a>
       </div>
-      <a class="button secondary" href="#dashboard">Open Dashboard</a>
     </nav>
 
-    <div class="container hero-grid">
-      <section>
-        <span class="eyebrow">Owner-ready website</span>
-        <h1>Track loads, fuel, deadhead, and 50/50 owner split in one place.</h1>
-        <p class="lead">Built for a small trucking operation with one truck to start. Save load details, calculate fuel cost automatically, and see profit split between both owners fast.</p>
+    <section class="hero-inner container">
+      <div class="hero-copy">
+        <span class="eyebrow">Dallas, Texas</span>
+        <h1>Professional freight transportation built on reliability.</h1>
+        <p class="lead">
+          Triple D Finest Logistics LLC helps move freight with dependable service, strong communication,
+          and attention to safe, on-time delivery.
+        </p>
         <div class="hero-actions">
-          <a class="button" href="#dashboard">Start Tracking</a>
-          <a class="button secondary" href="#features">See Features</a>
+          <a href="#contact" class="button">Request a Quote</a>
+          <a href="#services" class="button secondary">Our Services</a>
         </div>
-      </section>
-      <section class="hero-card">
-        <div class="stat-grid">
-          <div class="stat-card">
-            <span>Total Gross</span>
-            <strong id="heroGross">$0.00</strong>
+
+        <div class="hero-points">
+          <div class="point-card">
+            <strong>Dependable Service</strong>
+            <span>Focused on keeping freight moving smoothly and professionally.</span>
           </div>
-          <div class="stat-card">
-            <span>Total Net</span>
-            <strong id="heroNet">$0.00</strong>
+          <div class="point-card">
+            <strong>Clear Communication</strong>
+            <span>Fast updates and responsive support throughout the load process.</span>
           </div>
-          <div class="stat-card">
-            <span>Owner Split</span>
-            <strong id="heroSplit">$0.00</strong>
-          </div>
-          <div class="stat-card">
-            <span>Saved Loads</span>
-            <strong id="heroLoads">0</strong>
+          <div class="point-card">
+            <strong>Business Focused</strong>
+            <span>Built to serve shippers, brokers, and logistics partners with care.</span>
           </div>
         </div>
-      </section>
-    </div>
+      </div>
+
+      <div class="hero-side">
+        <div class="logo-panel">
+          <img src="logo.jpg" alt="Triple D Finest Logistics LLC logo" class="hero-logo" />
+        </div>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <span>Base</span>
+            <strong>Dallas, Texas</strong>
+          </div>
+          <div class="stat-card">
+            <span>Service</span>
+            <strong>Freight Movement</strong>
+          </div>
+          <div class="stat-card">
+            <span>Priority</span>
+            <strong>On-Time Delivery</strong>
+          </div>
+          <div class="stat-card">
+            <span>Contact</span>
+            <strong>Email Available</strong>
+          </div>
+        </div>
+      </div>
+    </section>
   </header>
 
   <main>
-    <section id="features" class="section container">
+    <section class="section container" id="services">
       <div class="section-head">
-        <span class="eyebrow">What is included</span>
-        <h2>Everything needed to start clean and organized.</h2>
+        <span class="eyebrow">Services</span>
+        <h2>What we do</h2>
+        <p>
+          We provide freight transportation support with a professional, customer-first approach designed to help keep loads moving efficiently.
+        </p>
       </div>
-      <div class="features">
-        <article class="card">
-          <h3>Load Calculator</h3>
-          <p>Enter gross load amount, miles, fuel price, driver pay, and extra expenses. The site calculates totals instantly.</p>
+      <div class="service-grid">
+        <article class="glass-card">
+          <h3>Freight Transportation</h3>
+          <p>Reliable movement of freight with attention to timing, communication, and service quality.</p>
         </article>
-        <article class="card">
-          <h3>Deadhead Tracking</h3>
-          <p>Track both outbound and return deadhead miles so actual trip cost is more accurate.</p>
+        <article class="glass-card">
+          <h3>Logistics Coordination</h3>
+          <p>Organized load handling and responsive updates for smoother operations.</p>
         </article>
-        <article class="card">
-          <h3>50/50 Owner Split</h3>
-          <p>Net profit is split equally after driver pay and expenses. Great for Noel and Carlos ownership tracking.</p>
+        <article class="glass-card">
+          <h3>Business Support</h3>
+          <p>Dependable service for shippers, brokers, and transportation partners.</p>
         </article>
-        <article class="card">
-          <h3>Saved Loads</h3>
-          <p>Your entries stay saved in the browser on this device using local storage.</p>
-        </article>
-      </div>
-    </section>
-
-    <section id="dashboard" class="section dark-section">
-      <div class="container dashboard-layout">
-        <section class="panel form-panel">
-          <div class="section-head compact">
-            <span class="eyebrow">Load entry</span>
-            <h2>Add a new load</h2>
-          </div>
-
-          <form id="loadForm" class="form-grid">
-            <label>
-              Load ID
-              <input type="text" id="loadId" placeholder="Load-001" required />
-            </label>
-            <label>
-              Date
-              <input type="date" id="loadDate" required />
-            </label>
-            <label>
-              Broker / Customer
-              <input type="text" id="brokerName" placeholder="Broker name" />
-            </label>
-            <label>
-              Gross Load Amount ($)
-              <input type="number" id="grossLoad" min="0" step="0.01" placeholder="2500" required />
-            </label>
-            <label>
-              Loaded Miles
-              <input type="number" id="loadedMiles" min="0" step="0.1" placeholder="450" required />
-            </label>
-            <label>
-              Deadhead Miles Out
-              <input type="number" id="deadheadOut" min="0" step="0.1" placeholder="75" />
-            </label>
-            <label>
-              Deadhead Miles Return
-              <input type="number" id="deadheadReturn" min="0" step="0.1" placeholder="90" />
-            </label>
-            <label>
-              MPG
-              <input type="number" id="mpg" min="0.1" step="0.1" value="6.5" required />
-            </label>
-            <label>
-              Fuel Price per Gallon ($)
-              <input type="number" id="fuelPrice" min="0" step="0.01" placeholder="3.59" required />
-            </label>
-            <label>
-              Driver Pay ($)
-              <input type="number" id="driverPay" min="0" step="0.01" placeholder="650" required />
-            </label>
-            <label>
-              Other Expenses ($)
-              <input type="number" id="otherExpenses" min="0" step="0.01" placeholder="125" />
-            </label>
-            <label>
-              Notes
-              <input type="text" id="notes" placeholder="Tolls, lumper, etc." />
-            </label>
-
-            <div class="actions">
-              <button class="button" type="submit">Save Load</button>
-              <button class="button secondary" type="button" id="resetBtn">Clear</button>
-            </div>
-          </form>
-        </section>
-
-        <section class="panel">
-          <div class="section-head compact">
-            <span class="eyebrow">Live totals</span>
-            <h2>Business snapshot</h2>
-          </div>
-          <div class="summary-grid">
-            <div class="summary-card"><span>Total Gross Revenue</span><strong id="totalGross">$0.00</strong></div>
-            <div class="summary-card"><span>Total Fuel Cost</span><strong id="totalFuel">$0.00</strong></div>
-            <div class="summary-card"><span>Total Expenses</span><strong id="totalExpenses">$0.00</strong></div>
-            <div class="summary-card"><span>Total Net Profit</span><strong id="totalNet">$0.00</strong></div>
-            <div class="summary-card"><span>Noel 50%</span><strong id="ownerOne">$0.00</strong></div>
-            <div class="summary-card"><span>Carlos 50%</span><strong id="ownerTwo">$0.00</strong></div>
-          </div>
-
-          <div class="mini-calc card calc-output">
-            <h3>Current load preview</h3>
-            <div class="calc-line"><span>Total Trip Miles</span><strong id="previewTripMiles">0.0</strong></div>
-            <div class="calc-line"><span>Gallons Used</span><strong id="previewGallons">0.00</strong></div>
-            <div class="calc-line"><span>Fuel Cost</span><strong id="previewFuelCost">$0.00</strong></div>
-            <div class="calc-line"><span>Net Profit</span><strong id="previewNetProfit">$0.00</strong></div>
-            <div class="calc-line"><span>Each Owner</span><strong id="previewSplit">$0.00</strong></div>
-          </div>
-        </section>
       </div>
     </section>
 
-    <section class="section container">
-      <div class="section-head compact">
-        <span class="eyebrow">Saved records</span>
-        <h2>Load history</h2>
+    <section class="section alt-section" id="about">
+      <div class="container split-layout">
+        <div>
+          <span class="eyebrow">About Us</span>
+          <h2>Built to represent your freight professionally.</h2>
+          <p class="muted">
+            Triple D Finest Logistics LLC is focused on providing dependable freight transportation service with strong communication, professionalism, and attention to detail.
+          </p>
+          <p class="muted">
+            Our goal is simple: move freight safely, efficiently, and on time while making the process smoother for every customer we work with.
+          </p>
+        </div>
+        <div class="feature-stack">
+          <div class="feature-item">
+            <strong>Professional image</strong>
+            <span>A clean, business-focused operation you can trust to represent loads well.</span>
+          </div>
+          <div class="feature-item">
+            <strong>Responsive communication</strong>
+            <span>Quick communication that helps customers stay informed.</span>
+          </div>
+          <div class="feature-item">
+            <strong>Reliable execution</strong>
+            <span>Service centered on consistency, timing, and care.</span>
+          </div>
+        </div>
       </div>
-      <div class="table-wrap card">
-        <table>
-          <thead>
-            <tr>
-              <th>Date</th>
-              <th>Load ID</th>
-              <th>Broker</th>
-              <th>Gross</th>
-              <th>Fuel</th>
-              <th>Expenses</th>
-              <th>Net</th>
-              <th>Owner Split</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody id="loadsTableBody">
-            <tr><td colspan="9" class="empty">No loads saved yet.</td></tr>
-          </tbody>
-        </table>
+    </section>
+
+    <section class="section container" id="coverage">
+      <div class="section-head">
+        <span class="eyebrow">Coverage</span>
+        <h2>Serving freight needs from Texas and beyond</h2>
+        <p>Based in Dallas, we are positioned to support freight transportation needs with dependable service and professional coordination.</p>
+      </div>
+      <div class="coverage-banner">
+        <div>
+          <strong>Based in Dallas, Texas</strong>
+          <span>Professional freight support with a focus on reliability and communication.</span>
+        </div>
+        <a href="#contact" class="button">Contact Us</a>
+      </div>
+    </section>
+
+    <section class="section contact-section" id="contact">
+      <div class="container contact-grid">
+        <div class="contact-info">
+          <span class="eyebrow">Contact</span>
+          <h2>Send us a message</h2>
+          <p class="muted">
+            Every message from this page is set to go to:
+          </p>
+          <a class="email-link" href="mailto:tripledfinestlogistics@gmail.com">tripledfinestlogistics@gmail.com</a>
+          <p class="muted">
+            Use the form and it will open an email draft addressed to us with your message filled in.
+          </p>
+        </div>
+
+        <form id="contactForm" class="contact-form">
+          <label>
+            Full Name
+            <input type="text" id="name" required placeholder="Your name" />
+          </label>
+          <label>
+            Email
+            <input type="email" id="email" required placeholder="you@example.com" />
+          </label>
+          <label>
+            Subject
+            <input type="text" id="subject" required placeholder="Quote request" />
+          </label>
+          <label>
+            Message
+            <textarea id="message" rows="6" required placeholder="Tell us about your freight needs"></textarea>
+          </label>
+          <button type="submit" class="button">Send Message</button>
+        </form>
       </div>
     </section>
   </main>
@@ -201,10 +190,10 @@
   <footer class="footer">
     <div class="container footer-inner">
       <div>
-        <strong>Triple D Finest Logistics</strong>
-        <p>Simple ready-to-use website for tracking loads and profit.</p>
+        <strong>Triple D Finest Logistics LLC</strong>
+        <p>Freight transportation with reliability, communication, and professionalism.</p>
       </div>
-      <button class="button secondary" id="clearAllBtn" type="button">Delete All Saved Loads</button>
+      <a href="mailto:tripledfinestlogistics@gmail.com" class="button secondary">Email Us</a>
     </div>
   </footer>
 
