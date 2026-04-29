@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Triple D Finest Logistics LLC | Freight Transportation</title>
-  <meta name="description" content="Triple D Finest Logistics LLC provides reliable box truck freight, local delivery, last-mile delivery, dedicated runs, and business freight solutions from Dallas, TX." />
+  <meta name="description" content="Triple D Finest Logistics LLC provides reliable box truck freight, local delivery, last-mile delivery, dedicated runs, and business freight support from Dallas, TX." />
 
   <style>
     :root {
@@ -19,6 +19,7 @@
     }
 
     * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
 
     body {
       margin:0;
@@ -44,7 +45,7 @@
     header {
       position:relative;
       overflow:hidden;
-      min-height:760px;
+      min-height:780px;
       display:flex;
       align-items:center;
       padding:48px 22px 76px;
@@ -62,6 +63,12 @@
         linear-gradient(120deg, transparent 0 45%, rgba(255,255,255,.05) 45% 46%, transparent 46% 100%),
         repeating-linear-gradient(135deg, rgba(255,255,255,.035) 0 1px, transparent 1px 22px);
       opacity:.55;
+      animation: backgroundMove 16s linear infinite;
+    }
+
+    @keyframes backgroundMove {
+      from { transform: translateX(0); }
+      to { transform: translateX(38px); }
     }
 
     .hero {
@@ -76,11 +83,32 @@
       align-items:center;
     }
 
+    .fade-up {
+      opacity:0;
+      transform:translateY(24px);
+      animation: fadeUp .8s ease forwards;
+    }
+
+    .delay-1 { animation-delay:.15s; }
+    .delay-2 { animation-delay:.3s; }
+    .delay-3 { animation-delay:.45s; }
+
+    @keyframes fadeUp {
+      to { opacity:1; transform:translateY(0); }
+    }
+
     .logo {
-      width:380px;
-      max-width:92vw;
+      width:430px;
+      max-width:94vw;
       margin-bottom:24px;
-      filter: drop-shadow(0 18px 35px rgba(0,0,0,.55));
+      border-radius:24px;
+      filter: drop-shadow(0 22px 40px rgba(0,0,0,.6));
+      animation: logoFloat 4.5s ease-in-out infinite;
+    }
+
+    @keyframes logoFloat {
+      0%, 100% { transform:translateY(0); }
+      50% { transform:translateY(-8px); }
     }
 
     .badge {
@@ -126,6 +154,12 @@
       text-decoration:none;
       font-weight:800;
       border:1px solid transparent;
+      transition:.2s ease;
+    }
+
+    .btn:hover {
+      transform:translateY(-2px);
+      box-shadow:0 18px 36px rgba(0,0,0,.28);
     }
 
     .btn-primary {
@@ -155,7 +189,10 @@
       padding:14px;
       color:#f5f5f5;
       font-size:14px;
+      transition:.2s ease;
     }
+
+    .point:hover { transform:translateY(-3px); border-color:rgba(242,199,91,.35); }
 
     .quote-card {
       background:rgba(12,12,12,.96);
@@ -176,10 +213,7 @@
       font-size:16px;
     }
 
-    form {
-      display:grid;
-      gap:13px;
-    }
+    form { display:grid; gap:13px; }
 
     input, textarea, select {
       width:100%;
@@ -190,6 +224,13 @@
       color:#111;
       font-size:15px;
       font-family:inherit;
+      transition:.2s ease;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline:none;
+      border-color:var(--gold2);
+      box-shadow:0 0 0 3px rgba(242,199,91,.18);
     }
 
     textarea { min-height:112px; resize:vertical; }
@@ -203,7 +244,10 @@
       border-radius:999px;
       font-size:16px;
       cursor:pointer;
+      transition:.2s ease;
     }
+
+    button:hover { transform:translateY(-2px); }
 
     main { background:#080808; }
 
@@ -241,7 +285,14 @@
       border:1px solid var(--line);
       border-radius:24px;
       padding:25px;
-      min-height:190px;
+      min-height:205px;
+      transition:.22s ease;
+    }
+
+    .card:hover {
+      transform:translateY(-6px);
+      border-color:rgba(242,199,91,.4);
+      box-shadow:0 18px 44px rgba(0,0,0,.22);
     }
 
     .card h3 {
@@ -250,10 +301,31 @@
       font-size:20px;
     }
 
-    .card p {
-      margin:0;
-      color:var(--muted);
+    .card p { margin:0; color:var(--muted); }
+
+    .stats {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      margin-top:22px;
     }
+
+    .stat {
+      background:#101010;
+      border:1px solid rgba(242,199,91,.25);
+      border-radius:22px;
+      padding:22px;
+      text-align:center;
+    }
+
+    .stat strong {
+      display:block;
+      color:var(--gold2);
+      font-size:30px;
+      margin-bottom:4px;
+    }
+
+    .stat span { color:var(--muted); }
 
     .about {
       display:grid;
@@ -269,19 +341,31 @@
       padding:30px;
     }
 
-    .about-box h2, .about-box h3 {
-      margin-top:0;
+    .about-box h2, .about-box h3 { margin-top:0; color:var(--gold2); }
+    .about-box p, .about-box li { color:var(--muted); }
+    .about-box ul { padding-left:20px; margin-bottom:0; }
+
+    .process {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:16px;
+    }
+
+    .step {
+      background:#111;
+      border:1px solid var(--line);
+      border-radius:22px;
+      padding:22px;
+    }
+
+    .step b {
       color:var(--gold2);
+      display:block;
+      margin-bottom:8px;
+      font-size:18px;
     }
 
-    .about-box p, .about-box li {
-      color:var(--muted);
-    }
-
-    .about-box ul {
-      padding-left:20px;
-      margin-bottom:0;
-    }
+    .step p { color:var(--muted); margin:0; }
 
     .contact-grid {
       display:grid;
@@ -293,15 +377,8 @@
       padding:30px;
     }
 
-    .contact-item h3 {
-      margin:0 0 8px;
-      color:var(--gold2);
-    }
-
-    .contact-item p {
-      margin:0;
-      color:#f0f0f0;
-    }
+    .contact-item h3 { margin:0 0 8px; color:var(--gold2); }
+    .contact-item p { margin:0; color:#f0f0f0; }
 
     footer {
       text-align:center;
@@ -316,8 +393,9 @@
       header { min-height:auto; padding-top:38px; }
       .hero, .about { grid-template-columns:1fr; }
       .cards { grid-template-columns:repeat(2,1fr); }
+      .process, .stats { grid-template-columns:1fr; }
       .contact-grid { grid-template-columns:1fr; }
-      .logo { width:310px; }
+      .logo { width:340px; }
       .quick-points { grid-template-columns:1fr; }
     }
 
@@ -326,7 +404,7 @@
       .actions { flex-direction:column; }
       .btn { text-align:center; }
       .quote-card { padding:22px; border-radius:22px; }
-      .logo { width:280px; }
+      .logo { width:300px; }
     }
   </style>
 </head>
@@ -339,27 +417,27 @@
   <header>
     <div class="hero">
       <div>
-        <img class="logo" src="logo.png" alt="Triple D Finest Logistics LLC logo" />
-        <div class="badge">Professional Freight Solutions</div>
-        <h1>Reliable Freight Transportation <span class="gold">Done Right.</span></h1>
-        <p>
+        <img class="logo fade-up" src="logo.png" alt="Triple D Finest Logistics LLC logo" />
+        <div class="badge fade-up delay-1">Professional Freight Solutions</div>
+        <h1 class="fade-up delay-1">Reliable Freight Transportation <span class="gold">Done Right.</span></h1>
+        <p class="fade-up delay-2">
           Triple D Finest Logistics LLC provides dependable box truck freight, local delivery,
           last-mile delivery, dedicated runs, and business-to-business transportation support.
         </p>
 
-        <div class="actions">
+        <div class="actions fade-up delay-3">
           <a class="btn btn-primary" href="#quote">Request a Quote</a>
           <a class="btn btn-secondary" href="mailto:dispatch@tripledfinestlogistics.com">Email Dispatch</a>
         </div>
 
-        <div class="quick-points">
+        <div class="quick-points fade-up delay-3">
           <div class="point">Clear communication from pickup to delivery</div>
           <div class="point">Professional handling for business freight</div>
           <div class="point">Responsive dispatch and scheduling</div>
         </div>
       </div>
 
-      <div class="quote-card" id="quote">
+      <div class="quote-card fade-up delay-2" id="quote">
         <h2>Request a Freight Quote</h2>
         <p>Send shipment details and our dispatch team will review availability and pricing.</p>
 
@@ -419,6 +497,12 @@
           <p>Consistent transportation support for repeat lanes, scheduled pickups, and recurring business needs.</p>
         </div>
       </div>
+
+      <div class="stats">
+        <div class="stat"><strong>26ft</strong><span>Box truck freight capability</span></div>
+        <div class="stat"><strong>Dallas</strong><span>Based transportation support</span></div>
+        <div class="stat"><strong>Fast</strong><span>Quote response & communication</span></div>
+      </div>
     </section>
 
     <section class="section about">
@@ -442,6 +526,20 @@
           <li>Local Dallas-based logistics support</li>
           <li>Customer-focused service and dependable follow-through</li>
         </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <h2>How It Works</h2>
+        <p>A simple process designed to make quoting and scheduling freight easy.</p>
+      </div>
+
+      <div class="process">
+        <div class="step"><b>1. Submit Details</b><p>Send pickup, delivery, freight, and timing information.</p></div>
+        <div class="step"><b>2. Dispatch Review</b><p>Our team reviews availability, details, and pricing.</p></div>
+        <div class="step"><b>3. Confirm Load</b><p>We confirm scheduling and communication expectations.</p></div>
+        <div class="step"><b>4. Move Freight</b><p>Your freight is handled professionally from pickup to delivery.</p></div>
       </div>
     </section>
 
