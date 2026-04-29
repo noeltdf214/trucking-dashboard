@@ -1,197 +1,475 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Triple D Finest Logistics LLC</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Triple D Finest Logistics LLC | Freight Transportation</title>
+  <meta name="description" content="Triple D Finest Logistics LLC provides reliable box truck freight, local delivery, last-mile delivery, dedicated runs, and business freight solutions from Dallas, TX." />
 
-<style>
-body {
-  margin:0;
-  font-family: Arial, sans-serif;
-  background:#0b0b0b;
-  color:white;
-}
+  <style>
+    :root {
+      --black:#050505;
+      --dark:#0e0e0e;
+      --panel:#151515;
+      --gold:#c99b3b;
+      --gold2:#f2c75b;
+      --text:#ffffff;
+      --muted:#cfcfcf;
+      --line:rgba(255,255,255,.12);
+    }
 
-header {
-  text-align:center;
-  padding:60px 20px;
-  background: linear-gradient(135deg,#000,#111,#1a1a1a);
-}
+    * { box-sizing:border-box; }
 
-.logo {
-  width:280px;
-  margin-bottom:20px;
-}
+    body {
+      margin:0;
+      font-family: Arial, Helvetica, sans-serif;
+      background:var(--black);
+      color:var(--text);
+      line-height:1.5;
+    }
 
-h1 {
-  font-size:42px;
-  margin-bottom:10px;
-}
+    a { color:inherit; }
 
-p {
-  color:#ccc;
-}
+    .topbar {
+      background:#000;
+      color:#e7e7e7;
+      padding:10px 18px;
+      text-align:center;
+      font-size:14px;
+      border-bottom:1px solid var(--line);
+    }
 
-.btn {
-  background:#c89b3c;
-  color:black;
-  padding:12px 22px;
-  text-decoration:none;
-  border-radius:5px;
-  display:inline-block;
-  margin-top:15px;
-  font-weight:bold;
-}
+    .topbar a { color:var(--gold2); text-decoration:none; font-weight:700; }
 
-.section {
-  padding:50px 20px;
-  text-align:center;
-}
+    header {
+      position:relative;
+      overflow:hidden;
+      min-height:760px;
+      display:flex;
+      align-items:center;
+      padding:48px 22px 76px;
+      background:
+        radial-gradient(circle at 77% 20%, rgba(242,199,91,.28), transparent 28%),
+        radial-gradient(circle at 20% 80%, rgba(201,155,59,.15), transparent 28%),
+        linear-gradient(135deg,#050505 0%,#111 48%,#050505 100%);
+    }
 
-.cards {
-  display:flex;
-  flex-wrap:wrap;
-  justify-content:center;
-  gap:20px;
-  margin-top:30px;
-}
+    header::before {
+      content:"";
+      position:absolute;
+      inset:0;
+      background:
+        linear-gradient(120deg, transparent 0 45%, rgba(255,255,255,.05) 45% 46%, transparent 46% 100%),
+        repeating-linear-gradient(135deg, rgba(255,255,255,.035) 0 1px, transparent 1px 22px);
+      opacity:.55;
+    }
 
-.card {
-  background:#111;
-  padding:25px;
-  width:260px;
-  border-radius:10px;
-  border:1px solid #222;
-}
+    .hero {
+      position:relative;
+      z-index:1;
+      max-width:1180px;
+      width:100%;
+      margin:auto;
+      display:grid;
+      grid-template-columns: 1.08fr .92fr;
+      gap:44px;
+      align-items:center;
+    }
 
-.card h3 {
-  color:#c89b3c;
-}
+    .logo {
+      width:380px;
+      max-width:92vw;
+      margin-bottom:24px;
+      filter: drop-shadow(0 18px 35px rgba(0,0,0,.55));
+    }
 
-.form {
-  max-width:500px;
-  margin:30px auto;
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
+    .badge {
+      display:inline-block;
+      color:#111;
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      padding:9px 14px;
+      border-radius:999px;
+      font-weight:800;
+      font-size:13px;
+      letter-spacing:.5px;
+      margin-bottom:18px;
+      text-transform:uppercase;
+    }
 
-input, textarea {
-  padding:12px;
-  border-radius:5px;
-  border:none;
-}
+    h1 {
+      margin:0;
+      font-size:clamp(42px, 6vw, 76px);
+      line-height:.95;
+      letter-spacing:-2px;
+    }
 
-button {
-  background:#c89b3c;
-  padding:12px;
-  border:none;
-  font-weight:bold;
-  cursor:pointer;
-}
+    .gold { color:var(--gold2); }
 
-footer {
-  text-align:center;
-  padding:20px;
-  background:#000;
-  color:#777;
-}
-</style>
+    .hero p {
+      max-width:640px;
+      color:#eeeeee;
+      font-size:clamp(18px, 2vw, 23px);
+      margin:22px 0 28px;
+    }
 
+    .actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:14px;
+      margin-bottom:24px;
+    }
+
+    .btn {
+      display:inline-block;
+      padding:14px 24px;
+      border-radius:999px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid transparent;
+    }
+
+    .btn-primary {
+      color:#111;
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      box-shadow:0 16px 34px rgba(201,155,59,.25);
+    }
+
+    .btn-secondary {
+      border-color:rgba(255,255,255,.25);
+      background:rgba(255,255,255,.07);
+      color:#fff;
+    }
+
+    .quick-points {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:12px;
+      max-width:660px;
+      margin-top:22px;
+    }
+
+    .point {
+      background:rgba(255,255,255,.075);
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:14px;
+      color:#f5f5f5;
+      font-size:14px;
+    }
+
+    .quote-card {
+      background:rgba(12,12,12,.96);
+      border:1px solid rgba(242,199,91,.36);
+      border-radius:30px;
+      padding:30px;
+      box-shadow:0 30px 90px rgba(0,0,0,.45);
+    }
+
+    .quote-card h2 {
+      margin:0 0 8px;
+      font-size:31px;
+    }
+
+    .quote-card p {
+      color:var(--muted);
+      margin:0 0 20px;
+      font-size:16px;
+    }
+
+    form {
+      display:grid;
+      gap:13px;
+    }
+
+    input, textarea, select {
+      width:100%;
+      padding:14px;
+      border-radius:12px;
+      border:1px solid #333;
+      background:#fff;
+      color:#111;
+      font-size:15px;
+      font-family:inherit;
+    }
+
+    textarea { min-height:112px; resize:vertical; }
+
+    button {
+      border:none;
+      background:linear-gradient(135deg,var(--gold2),var(--gold));
+      color:#111;
+      font-weight:900;
+      padding:15px 18px;
+      border-radius:999px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    main { background:#080808; }
+
+    .section {
+      max-width:1180px;
+      margin:auto;
+      padding:76px 22px;
+    }
+
+    .section-title {
+      text-align:center;
+      margin-bottom:36px;
+    }
+
+    .section-title h2 {
+      font-size:clamp(32px,4vw,48px);
+      margin:0 0 10px;
+    }
+
+    .section-title p {
+      max-width:760px;
+      margin:0 auto;
+      color:var(--muted);
+      font-size:17px;
+    }
+
+    .cards {
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:18px;
+    }
+
+    .card {
+      background:linear-gradient(180deg,#171717,#101010);
+      border:1px solid var(--line);
+      border-radius:24px;
+      padding:25px;
+      min-height:190px;
+    }
+
+    .card h3 {
+      margin:0 0 10px;
+      color:var(--gold2);
+      font-size:20px;
+    }
+
+    .card p {
+      margin:0;
+      color:var(--muted);
+    }
+
+    .about {
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:26px;
+      align-items:stretch;
+    }
+
+    .about-box {
+      background:#111;
+      border:1px solid var(--line);
+      border-radius:28px;
+      padding:30px;
+    }
+
+    .about-box h2, .about-box h3 {
+      margin-top:0;
+      color:var(--gold2);
+    }
+
+    .about-box p, .about-box li {
+      color:var(--muted);
+    }
+
+    .about-box ul {
+      padding-left:20px;
+      margin-bottom:0;
+    }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:18px;
+      background:linear-gradient(135deg,#111,#050505);
+      border:1px solid rgba(242,199,91,.35);
+      border-radius:30px;
+      padding:30px;
+    }
+
+    .contact-item h3 {
+      margin:0 0 8px;
+      color:var(--gold2);
+    }
+
+    .contact-item p {
+      margin:0;
+      color:#f0f0f0;
+    }
+
+    footer {
+      text-align:center;
+      padding:28px 18px;
+      background:#000;
+      color:#aaa;
+      border-top:1px solid var(--line);
+      font-size:14px;
+    }
+
+    @media (max-width:900px) {
+      header { min-height:auto; padding-top:38px; }
+      .hero, .about { grid-template-columns:1fr; }
+      .cards { grid-template-columns:repeat(2,1fr); }
+      .contact-grid { grid-template-columns:1fr; }
+      .logo { width:310px; }
+      .quick-points { grid-template-columns:1fr; }
+    }
+
+    @media (max-width:560px) {
+      .cards { grid-template-columns:1fr; }
+      .actions { flex-direction:column; }
+      .btn { text-align:center; }
+      .quote-card { padding:22px; border-radius:22px; }
+      .logo { width:280px; }
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
-  <img src="logo.png" class="logo">
-  <h1>Triple D Finest Logistics LLC</h1>
-  <p>Reliable Freight Transportation You Can Trust</p>
-  <a href="#quote" class="btn">Request a Quote</a>
-</header>
-
-<div class="section">
-  <h2>Our Services</h2>
-
-  <div class="cards">
-    <div class="card">
-      <h3>Box Truck Freight</h3>
-      <p>Professional transportation using 26ft box trucks.</p>
-    </div>
-
-```
-<div class="card">
-  <h3>Local Delivery</h3>
-  <p>Fast and reliable freight delivery across the Dallas area.</p>
-</div>
-
-<div class="card">
-  <h3>Last Mile</h3>
-  <p>Efficient final-mile delivery for businesses and customers.</p>
-</div>
-
-<div class="card">
-  <h3>Dedicated Runs</h3>
-  <p>Consistent service for repeat freight needs.</p>
-</div>
-```
-
+  <div class="topbar">
+    Dallas, TX Freight Transportation | <a href="mailto:dispatch@tripledfinestlogistics.com">dispatch@tripledfinestlogistics.com</a> | 214-702-2185
   </div>
-</div>
 
-<div class="section">
-  <h2>Why Choose Us</h2>
+  <header>
+    <div class="hero">
+      <div>
+        <img class="logo" src="logo.png" alt="Triple D Finest Logistics LLC logo" />
+        <div class="badge">Professional Freight Solutions</div>
+        <h1>Reliable Freight Transportation <span class="gold">Done Right.</span></h1>
+        <p>
+          Triple D Finest Logistics LLC provides dependable box truck freight, local delivery,
+          last-mile delivery, dedicated runs, and business-to-business transportation support.
+        </p>
 
-  <div class="cards">
-    <div class="card">
-      <h3>Reliable</h3>
-      <p>On-time deliveries you can depend on.</p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#quote">Request a Quote</a>
+          <a class="btn btn-secondary" href="mailto:dispatch@tripledfinestlogistics.com">Email Dispatch</a>
+        </div>
+
+        <div class="quick-points">
+          <div class="point">Clear communication from pickup to delivery</div>
+          <div class="point">Professional handling for business freight</div>
+          <div class="point">Responsive dispatch and scheduling</div>
+        </div>
+      </div>
+
+      <div class="quote-card" id="quote">
+        <h2>Request a Freight Quote</h2>
+        <p>Send shipment details and our dispatch team will review availability and pricing.</p>
+
+        <form action="https://formsubmit.co/dispatch@tripledfinestlogistics.com" method="POST">
+          <input type="hidden" name="_subject" value="New Quote Request - Triple D Finest Logistics LLC" />
+          <input type="hidden" name="_captcha" value="false" />
+          <input type="hidden" name="_template" value="table" />
+
+          <input type="text" name="Name / Company" placeholder="Name / Company" required />
+          <input type="email" name="Email" placeholder="Email address" required />
+          <input type="tel" name="Phone" placeholder="Phone number" />
+          <input type="text" name="Pickup Location" placeholder="Pickup location" required />
+          <input type="text" name="Delivery Location" placeholder="Delivery location" required />
+
+          <select name="Service Needed">
+            <option value="">Service needed</option>
+            <option>Box Truck Freight</option>
+            <option>Local Delivery</option>
+            <option>Last-Mile Delivery</option>
+            <option>Dedicated Run</option>
+            <option>Business Freight Support</option>
+          </select>
+
+          <textarea name="Shipment Details" placeholder="Freight type, weight, dimensions, pickup date/time, and special instructions"></textarea>
+
+          <button type="submit">Send Quote Request</button>
+        </form>
+      </div>
     </div>
+  </header>
 
-```
-<div class="card">
-  <h3>Professional</h3>
-  <p>Clear communication and strong service.</p>
-</div>
+  <main>
+    <section class="section">
+      <div class="section-title">
+        <h2>Carrier & Logistics Support</h2>
+        <p>
+          Built for businesses that need dependable transportation, clear updates,
+          and a professional team that treats every shipment with care.
+        </p>
+      </div>
 
-<div class="card">
-  <h3>Flexible</h3>
-  <p>We adapt to your freight needs.</p>
-</div>
-```
+      <div class="cards">
+        <div class="card">
+          <h3>Box Truck Freight</h3>
+          <p>26ft box truck freight support for business deliveries, palletized freight, and scheduled shipments.</p>
+        </div>
+        <div class="card">
+          <h3>Local Delivery</h3>
+          <p>Reliable pickup and delivery service for companies needing dependable local transportation.</p>
+        </div>
+        <div class="card">
+          <h3>Last-Mile Delivery</h3>
+          <p>Final-mile delivery support with professional communication and careful freight handling.</p>
+        </div>
+        <div class="card">
+          <h3>Dedicated Runs</h3>
+          <p>Consistent transportation support for repeat lanes, scheduled pickups, and recurring business needs.</p>
+        </div>
+      </div>
+    </section>
 
-  </div>
-</div>
+    <section class="section about">
+      <div class="about-box">
+        <h2>About Triple D Finest Logistics</h2>
+        <p>
+          Triple D Finest Logistics LLC is a Dallas-based transportation company focused on dependable freight movement,
+          responsive dispatch communication, and professional service for businesses that need their shipments handled correctly.
+        </p>
+        <p>
+          Our goal is simple: provide clean communication, reliable scheduling, and freight service that customers can trust.
+        </p>
+      </div>
 
-<div class="section" id="quote">
-  <h2>Request a Quote</h2>
+      <div class="about-box">
+        <h3>Why Customers Choose Us</h3>
+        <ul>
+          <li>Fast response to quote requests and shipment questions</li>
+          <li>Professional communication from start to finish</li>
+          <li>Flexible scheduling for business freight needs</li>
+          <li>Local Dallas-based logistics support</li>
+          <li>Customer-focused service and dependable follow-through</li>
+        </ul>
+      </div>
+    </section>
 
-  <form class="form" action="https://formsubmit.co/dispatch@tripledfinestlogistics.com" method="POST">
+    <section class="section">
+      <div class="section-title">
+        <h2>Contact Dispatch</h2>
+        <p>Ready to move freight? Send us your shipment details or contact our team directly.</p>
+      </div>
 
-```
-<input type="text" name="Name" placeholder="Name / Company" required>
-<input type="email" name="Email" placeholder="Email" required>
-<input type="text" name="Pickup" placeholder="Pickup Location" required>
-<input type="text" name="Dropoff" placeholder="Dropoff Location" required>
-<textarea name="Details" placeholder="Freight details"></textarea>
+      <div class="contact-grid">
+        <div class="contact-item">
+          <h3>Email</h3>
+          <p><a href="mailto:dispatch@tripledfinestlogistics.com">dispatch@tripledfinestlogistics.com</a></p>
+        </div>
+        <div class="contact-item">
+          <h3>Phone</h3>
+          <p>214-702-2185</p>
+        </div>
+        <div class="contact-item">
+          <h3>Location</h3>
+          <p>Dallas, TX</p>
+        </div>
+      </div>
+    </section>
+  </main>
 
-<button type="submit">Send Request</button>
-```
-
-  </form>
-</div>
-
-<div class="section">
-  <h2>Contact</h2>
-  <p>Email: dispatch@tripledfinestlogistics.com</p>
-  <p>Phone: 214-702-2185</p>
-  <p>Dallas, TX</p>
-</div>
-
-<footer>
-  © Triple D Finest Logistics LLC
-</footer>
-
+  <footer>
+    © 2026 Triple D Finest Logistics LLC. All rights reserved.
+  </footer>
 </body>
 </html>
