@@ -1,8 +1,13 @@
-# Triple D Finest Logistics Website
+# Triple D Finest Logistics - Vercel Website
 
-Upload these files to GitHub or Vercel:
+Upload these files to Vercel or GitHub:
 - index.html
 - logo.png
 - hero-truck-bg.jpg
 
-This version is styled like the aesthetic mockup, includes the white box truck background, phone number, Web3Forms quote form, and confirmation messages.
+The site includes:
+- Professional black/gold logistics design
+- Dallas skyline + white box truck background without quote form screenshot in background
+- Phone number: 214-702-2185
+- Web3Forms quote form
+- About Us, Services, Service Area, Quote Requirements, FAQ, Footer
