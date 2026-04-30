@@ -1,14 +1,9 @@
-# Triple D Finest Logistics LLC - Premium Public Website
+# Triple D Finest Logistics Website
 
-This version is designed for a public-facing Vercel site.
+Upload these files to GitHub or drag the folder into Vercel.
 
-## What it includes
-- Premium trucking-company style homepage
-- Your logo built in
-- Email-only contact setup
-- Contact form that opens an email draft addressed to:
-  tripledfinestlogistics@gmail.com
+Files:
+- index.html
+- logo.png
 
-## Important
-This contact form works without a backend by using the visitor's email app.
-If you want messages to send directly from the website without opening email, the next step is adding Formspree, Resend, or a serverless backend.
+The quote form is connected to Web3Forms using the provided access key.
