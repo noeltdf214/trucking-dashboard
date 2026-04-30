@@ -1,9 +1,8 @@
 # Triple D Finest Logistics Website
 
-Upload the files inside this folder to GitHub or Vercel.
-
-Files:
+Upload these files to GitHub or Vercel:
 - index.html
 - logo.png
+- hero-truck-bg.jpg
 
-This version restores the full professional website and removes the broken minimal test page.
+This version is styled like the aesthetic mockup, includes the white box truck background, phone number, Web3Forms quote form, and confirmation messages.
