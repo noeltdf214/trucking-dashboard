@@ -1,9 +1,9 @@
 # Triple D Finest Logistics Website
 
-Upload these files to GitHub or drag the folder into Vercel.
+Upload the files inside this folder to GitHub or Vercel.
 
 Files:
 - index.html
 - logo.png
 
-The quote form is connected to Web3Forms using the provided access key.
+This version restores the full professional website and removes the broken minimal test page.
